@@ -3,7 +3,8 @@ import { Model } from 'mongoose';
 import { Track } from './schemas/track.schema';
 import { Comment } from './schemas/comment.schema';
 import { InjectModel } from '@nestjs/mongoose';
-import  {TrackDocument} from './track.module'
+import { TrackDocument } from './schemas/track.schema';
+import { CommentDocument } from './schemas/comment.schema';
 
 @Injectable()
 export class TrackService {
@@ -12,10 +13,7 @@ export class TrackService {
     @InjectModel(Comment.name) private commentkModel: Model<CommentDocument>,
   ) {}
 
-  async create(dto: CreateTrackDto): Promise<Track> {
-    const track = await this.trackModel.create({...dto. listens: 0})
-  return track;
-  }
+  async create() {}
   async getAll() {}
 
   async getOne() {}
